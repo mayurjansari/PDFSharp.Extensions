@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 using BitMiracle.LibTiff.Classic;
 using PdfSharp.Pdf.Advanced;
 using PdfSharp.Pdf.Filters;
+using PdfSharp.Pdf.Internal;
 
 // ReSharper disable once CheckNamespace
 namespace PdfSharp.Pdf
