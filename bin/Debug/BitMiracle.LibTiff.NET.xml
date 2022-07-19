@@ -2122,6 +2122,21 @@
             This tag is optionally provided for defining exact affine transformations between raster and model space. Used in interchangeable GeoTIFF files.
             </summary>
         </member>
+        <member name="F:BitMiracle.LibTiff.Classic.TiffTag.GEOTIFF_GEOKEYDIRECTORYTAG">
+            <summary>
+            This tag may be used to store the GeoKey Directory, which defines and references the "GeoKeys". Used in interchangeable GeoTIFF files.
+            </summary>
+        </member>
+        <member name="F:BitMiracle.LibTiff.Classic.TiffTag.GEOTIFF_GEODOUBLEPARAMSTAG">
+            <summary>
+            This tag is used to store all of the DOUBLE valued GeoKeys, referenced by the GeoKeyDirectoryTag. Used in interchangeable GeoTIFF files.
+            </summary>
+        </member>
+        <member name="F:BitMiracle.LibTiff.Classic.TiffTag.GEOTIFF_GEOASCIIPARAMSTAG">
+            <summary>
+            This tag is used to store all of the ASCII valued GeoKeys, referenced by the GeoKeyDirectoryTag. Used in interchangeable GeoTIFF files.
+            </summary>
+        </member>
         <member name="T:BitMiracle.LibTiff.Classic.TiffType">
             <summary>
             Tag data type.
@@ -4105,6 +4120,7 @@
             <summary>
             Writes the contents of the current directory to the specified file.
             </summary>
+            <param name="done">call PostEncode() first, and FreeDirectory() after writing</param>
             <remarks>This routine doesn't handle overwriting a directory with
             auxiliary storage that's been changed.</remarks>
         </member>
