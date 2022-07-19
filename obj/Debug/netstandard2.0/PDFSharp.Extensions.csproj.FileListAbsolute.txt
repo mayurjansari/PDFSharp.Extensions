@@ -1,0 +1,10 @@
+C:\MAYUR\MySea\sources\PDFSharp.Extensions\bin\Debug\netstandard2.0\PDFSharp.Extensions.deps.json
+C:\MAYUR\MySea\sources\PDFSharp.Extensions\bin\Debug\netstandard2.0\PDFSharp.Extensions.dll
+C:\MAYUR\MySea\sources\PDFSharp.Extensions\bin\Debug\netstandard2.0\PDFSharp.Extensions.pdb
+C:\MAYUR\MySea\sources\PDFSharp.Extensions\obj\Debug\netstandard2.0\PDFSharp.Extensions.csproj.AssemblyReference.cache
+C:\MAYUR\MySea\sources\PDFSharp.Extensions\obj\Debug\netstandard2.0\PDFSharp.Extensions.GeneratedMSBuildEditorConfig.editorconfig
+C:\MAYUR\MySea\sources\PDFSharp.Extensions\obj\Debug\netstandard2.0\PDFSharp.Extensions.AssemblyInfoInputs.cache
+C:\MAYUR\MySea\sources\PDFSharp.Extensions\obj\Debug\netstandard2.0\PDFSharp.Extensions.AssemblyInfo.cs
+C:\MAYUR\MySea\sources\PDFSharp.Extensions\obj\Debug\netstandard2.0\PDFSharp.Extensions.csproj.CoreCompileInputs.cache
+C:\MAYUR\MySea\sources\PDFSharp.Extensions\obj\Debug\netstandard2.0\PDFSharp.Extensions.dll
+C:\MAYUR\MySea\sources\PDFSharp.Extensions\obj\Debug\netstandard2.0\PDFSharp.Extensions.pdb

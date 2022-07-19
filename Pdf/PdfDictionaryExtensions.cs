@@ -175,8 +175,10 @@ public static class PdfDictionaryExtensions
 
         // Determine if BLACK=1, create proper indexed color palette.
         CCITTFaxDecodeParameters ccittFaxDecodeParameters = new CCITTFaxDecodeParameters(dictionary.Elements["/DecodeParms"].Get() as PdfDictionary);
-        if (ccittFaxDecodeParameters.BlackIs1) bitmap.Palette = PdfIndexedColorSpace.CreateColorPalette(Color.Black, Color.White);
-        else bitmap.Palette = PdfIndexedColorSpace.CreateColorPalette(Color.White, Color.Black);
+        if (ccittFaxDecodeParameters.BlackIs1)
+            bitmap.Palette = PdfIndexedColorSpace.CreateColorPalette(Color.Black, Color.White);
+        else
+            bitmap.Palette = PdfIndexedColorSpace.CreateColorPalette(Color.White, Color.Black);
         if (ccittFaxDecodeParameters.K == 0 || ccittFaxDecodeParameters.K > 0)
             imageData.Compression = Compression.CCITTFAX3;
         else if (ccittFaxDecodeParameters.K < 0)
@@ -194,6 +196,8 @@ public static class PdfDictionaryExtensions
                 {
                     tiff.ReadScanline(buffer, i);
 
+                    //code here to fix black and white image
+
                     Rectangle imgRect = new Rectangle(0, i, imageData.Width, 1);
                     BitmapData imgData = bitmap.LockBits(imgRect, ImageLockMode.WriteOnly, PixelFormat.Format1bppIndexed);
                     Marshal.Copy(buffer, 0, imgData.Scan0, buffer.Length);
@@ -201,79 +205,79 @@ public static class PdfDictionaryExtensions
                 }
             }
         }
-        return (bitmap);
-    }
-
-    /// <summary>
-    /// Retrieves the specifed dictionary object as an object encoded with FlateDecode filter.
-    /// </summary>
-    /// <remarks>
-    /// FlateDecode a commonly used filter based on the zlib/deflate algorithm (a.k.a. gzip, but not zip) 
-    /// defined in RFC 1950 and RFC 1951; introduced in PDF 1.2; it can use one of two groups of predictor 
-    /// functions for more compact zlib/deflate compression: Predictor 2 from the TIFF 6.0 specification 
-    /// and predictors (filters) from the PNG specification (RFC 2083)
-    /// </remarks>
-    /// <param name="dictionary">The dictionary to extract the object from.</param>
-    /// <returns>The image retrieve from the dictionary. If not found or an invalid image, then null is returned.</returns>
-    private static Image ImageFromFlateDecode(PdfDictionary dictionary)
-    {
-        PdfDictionaryImageMetaData imageData = new PdfDictionaryImageMetaData(dictionary);
-
-        // FlateDecode can be either indexed or a traditional ColorSpace
-        bool isIndexed = imageData.ColorSpace.IsIndexed;
-        PixelFormat format = GetPixelFormat(imageData.ColorSpace, imageData.BitsPerPixel, isIndexed);
-
-        Bitmap bitmap = new Bitmap(imageData.Width, imageData.Height, format);
-
-        // If indexed, retrieve and assign the color palette for the item.
-        if ((isIndexed) && (imageData.ColorSpace.IsRGB)) bitmap.Palette = ((PdfIndexedRGBColorSpace)imageData.ColorSpace).ToColorPalette();
-        else if (imageData.ColorSpace is PdfGrayColorSpace) bitmap.Palette = ((PdfGrayColorSpace)imageData.ColorSpace).ToColorPalette(imageData.BitsPerPixel);
-
-        // If not an indexed color, the .NET image component expects pixels to be in BGR order. However, our PDF stream is in RGB order.
-        byte[] stream = (format == PixelFormat.Format24bppRgb) ? ConvertRGBStreamToBGR(dictionary.Stream.UnfilteredValue) : dictionary.Stream.UnfilteredValue;
-
-        BitmapData bitmapData = bitmap.LockBits(new Rectangle(0, 0, imageData.Width, imageData.Height), ImageLockMode.WriteOnly, format);
-        // We can't just copy the bytes directly; the BitmapData .NET class has a stride (padding) associated with it. 
-        int bitsPerPixel = ((((int)format >> 8) & 0xFF));
-        int length = (int)Math.Ceiling(bitmapData.Width * bitsPerPixel / 8.0);
-        for (int y = 0, height = bitmapData.Height; y < height; y++)
-        {
-            int offset = y * length;
-            Marshal.Copy(stream, offset, bitmapData.Scan0 + (y * bitmapData.Stride), length);
+            return (bitmap);
         }
-        bitmap.UnlockBits(bitmapData);
 
-        return (bitmap);
-    }
-
-    /// <summary>
-    /// Converts an RGB ordered stream to BGR ordering. 
-    /// </summary>
-    /// <remarks>
-    /// A PDF /DeviceRGB stream is stored in RGB ordering, however the .NET Image libraries expect BGR ordering.
-    /// </remarks>
-    /// <param name="stream">The input stream to reorder. The input array will be modified inline by this procedure.</param>
-    /// <returns>Return the modified input stream.</returns>
-    private static byte[] ConvertRGBStreamToBGR(byte[] stream)
-    {
-        if (stream == null) return (null);
-
-        for (int x = 0, length = stream.Length; x < length; x += 3)
+        /// <summary>
+        /// Retrieves the specifed dictionary object as an object encoded with FlateDecode filter.
+        /// </summary>
+        /// <remarks>
+        /// FlateDecode a commonly used filter based on the zlib/deflate algorithm (a.k.a. gzip, but not zip) 
+        /// defined in RFC 1950 and RFC 1951; introduced in PDF 1.2; it can use one of two groups of predictor 
+        /// functions for more compact zlib/deflate compression: Predictor 2 from the TIFF 6.0 specification 
+        /// and predictors (filters) from the PNG specification (RFC 2083)
+        /// </remarks>
+        /// <param name="dictionary">The dictionary to extract the object from.</param>
+        /// <returns>The image retrieve from the dictionary. If not found or an invalid image, then null is returned.</returns>
+        private static Image ImageFromFlateDecode(PdfDictionary dictionary)
         {
-            byte red = stream[x];
+            PdfDictionaryImageMetaData imageData = new PdfDictionaryImageMetaData(dictionary);
 
-            stream[x] = stream[x + 2];
-            stream[x + 2] = red;
+            // FlateDecode can be either indexed or a traditional ColorSpace
+            bool isIndexed = imageData.ColorSpace.IsIndexed;
+            PixelFormat format = GetPixelFormat(imageData.ColorSpace, imageData.BitsPerPixel, isIndexed);
+
+            Bitmap bitmap = new Bitmap(imageData.Width, imageData.Height, format);
+
+            // If indexed, retrieve and assign the color palette for the item.
+            if ((isIndexed) && (imageData.ColorSpace.IsRGB)) bitmap.Palette = ((PdfIndexedRGBColorSpace)imageData.ColorSpace).ToColorPalette();
+            else if (imageData.ColorSpace is PdfGrayColorSpace) bitmap.Palette = ((PdfGrayColorSpace)imageData.ColorSpace).ToColorPalette(imageData.BitsPerPixel);
+
+            // If not an indexed color, the .NET image component expects pixels to be in BGR order. However, our PDF stream is in RGB order.
+            byte[] stream = (format == PixelFormat.Format24bppRgb) ? ConvertRGBStreamToBGR(dictionary.Stream.UnfilteredValue) : dictionary.Stream.UnfilteredValue;
+
+            BitmapData bitmapData = bitmap.LockBits(new Rectangle(0, 0, imageData.Width, imageData.Height), ImageLockMode.WriteOnly, format);
+            // We can't just copy the bytes directly; the BitmapData .NET class has a stride (padding) associated with it. 
+            int bitsPerPixel = ((((int)format >> 8) & 0xFF));
+            int length = (int)Math.Ceiling(bitmapData.Width * bitsPerPixel / 8.0);
+            for (int y = 0, height = bitmapData.Height; y < height; y++)
+            {
+                int offset = y * length;
+                Marshal.Copy(stream, offset, bitmapData.Scan0 + (y * bitmapData.Stride), length);
+            }
+            bitmap.UnlockBits(bitmapData);
+
+            return (bitmap);
         }
-        return (stream);
-    }
 
-    private static PdfDictionary ProcessFilters(PdfDictionary dictionary)
-    {
-        PdfDictionary result;
+        /// <summary>
+        /// Converts an RGB ordered stream to BGR ordering. 
+        /// </summary>
+        /// <remarks>
+        /// A PDF /DeviceRGB stream is stored in RGB ordering, however the .NET Image libraries expect BGR ordering.
+        /// </remarks>
+        /// <param name="stream">The input stream to reorder. The input array will be modified inline by this procedure.</param>
+        /// <returns>Return the modified input stream.</returns>
+        private static byte[] ConvertRGBStreamToBGR(byte[] stream)
+        {
+            if (stream == null) return (null);
 
-        // Create a dictionary mapping (i.e. switch statement) to process the expected filters.
-        var map = new Dictionary<string, Func<byte[], byte[]>>() {
+            for (int x = 0, length = stream.Length; x < length; x += 3)
+            {
+                byte red = stream[x];
+
+                stream[x] = stream[x + 2];
+                stream[x + 2] = red;
+            }
+            return (stream);
+        }
+
+        private static PdfDictionary ProcessFilters(PdfDictionary dictionary)
+        {
+            PdfDictionary result;
+
+            // Create a dictionary mapping (i.e. switch statement) to process the expected filters.
+            var map = new Dictionary<string, Func<byte[], byte[]>>() {
     { "/FlateDecode", (d) => {
       var decoder = new FlateDecode();
         FilterParms filterParms=null;
@@ -281,73 +285,73 @@ public static class PdfDictionaryExtensions
     } }
   };
 
-        // Get all of the filters.
-        var filters = ((PdfArray)dictionary.Elements["/Filter"])
-                                           .Elements.Where(e => e.IsName())
-                                           .Select(e => ((PdfName)e).Value)
-                                           .ToList();
-        // If only one filter in array. Just rewrite the /Filter
-        if (filters.Count == 1)
-        {
-            result = dictionary.Clone();
-            result.Elements["/Filter"] = new PdfName(filters[0]);
+            // Get all of the filters.
+            var filters = ((PdfArray)dictionary.Elements["/Filter"])
+                                               .Elements.Where(e => e.IsName())
+                                               .Select(e => ((PdfName)e).Value)
+                                               .ToList();
+            // If only one filter in array. Just rewrite the /Filter
+            if (filters.Count == 1)
+            {
+                result = dictionary.Clone();
+                result.Elements["/Filter"] = new PdfName(filters[0]);
+                return (result);
+            }
+
+            // Process each filter in order. The last filter should be the actual encoded image.
+            byte[] data = dictionary.Stream.Value;
+            for (int index = 0; index < (filters.Count - 1); index++)
+            {
+                if (!map.ContainsKey(filters[index]))
+                {
+                    throw new NotSupportedException(String.Format("Encountered embedded image with multiple filters: \"{0}\". Unable to process the filter: \"{1}\".",
+                                                                  String.Join(",", filters), filters[index]));
+                }
+                data = map[filters[index]].Invoke(data);
+            }
+
+            result = new PdfDictionary();
+            result.Elements.Add("/Filter", new PdfName(filters.Last()));
+            foreach (var element in dictionary.Elements.Where(e => !String.Equals(e.Key, "/Filter", StringComparison.OrdinalIgnoreCase)))
+            {
+                result.Elements.Add(element.Key, element.Value);
+            }
+            result.CreateStream(data);
+
             return (result);
         }
 
-        // Process each filter in order. The last filter should be the actual encoded image.
-        byte[] data = dictionary.Stream.Value;
-        for (int index = 0; index < (filters.Count - 1); index++)
+        /// <summary>
+        /// Retrieves the image from the specified dictionary.
+        /// </summary>
+        /// <param name="dictionary">The dictionary to extract the image from.</param>
+        /// <returns>Returns the image if valid, otherwise if the dictionary does not contain a valid image, then null is returned.</returns>
+        public static Image ToImage(this PdfDictionary dictionary)
         {
-            if (!map.ContainsKey(filters[index]))
-            {
-                throw new NotSupportedException(String.Format("Encountered embedded image with multiple filters: \"{0}\". Unable to process the filter: \"{1}\".",
-                                                              String.Join(",", filters), filters[index]));
-            }
-            data = map[filters[index]].Invoke(data);
-        }
+            if (!IsImage(dictionary)) return (null);
 
-        result = new PdfDictionary();
-        result.Elements.Add("/Filter", new PdfName(filters.Last()));
-        foreach (var element in dictionary.Elements.Where(e => !String.Equals(e.Key, "/Filter", StringComparison.OrdinalIgnoreCase)))
-        {
-            result.Elements.Add(element.Key, element.Value);
-        }
-        result.CreateStream(data);
-
-        return (result);
-    }
-
-    /// <summary>
-    /// Retrieves the image from the specified dictionary.
-    /// </summary>
-    /// <param name="dictionary">The dictionary to extract the image from.</param>
-    /// <returns>Returns the image if valid, otherwise if the dictionary does not contain a valid image, then null is returned.</returns>
-    public static Image ToImage(this PdfDictionary dictionary)
-    {
-        if (!IsImage(dictionary)) return (null);
-
-        // Create a dictionary mapping (i.e. switch statement) to handle the different filter types.
-        // Setup a default action, "noAction" if the dictionary entry is not found which will return a null image.
-        Func<PdfDictionary, Image> noAction = (d) => null;
-        var map = new Dictionary<string, Func<PdfDictionary, Image>>() {
+            // Create a dictionary mapping (i.e. switch statement) to handle the different filter types.
+            // Setup a default action, "noAction" if the dictionary entry is not found which will return a null image.
+            Func<PdfDictionary, Image> noAction = (d) => null;
+            var map = new Dictionary<string, Func<PdfDictionary, Image>>() {
     { "/CCITTFaxDecode", ImageFromCCITTFaxDecode },
     { "/DCTDecode", ImageFromDCTDecode },
     { "/FlateDecode", ImageFromFlateDecode }
   };
 
-        string filter = null;
-        var element = dictionary.Elements["/Filter"];
-        if (element.IsName()) filter = ((PdfName)element).Value;
-        else if (element.IsArray()) return (ToImage(ProcessFilters(dictionary)));
+            string filter = null;
+            var element = dictionary.Elements["/Filter"];
+            if (element.IsName()) filter = ((PdfName)element).Value;
+            else if (element.IsArray()) return (ToImage(ProcessFilters(dictionary)));
 
-        var action = map.ContainsKey(filter ?? String.Empty) ? map[filter] : noAction;
-        return (action.Invoke(dictionary));
-    }
+            var action = map.ContainsKey(filter ?? String.Empty) ? map[filter] : noAction;
+            return (action.Invoke(dictionary));
+        }
 
     #region ColorSpace
-    /// <summary>
-    /// Internal class for working with a colorspace.
-    /// </summary>
+        /// <summary>
+        /// Internal class for working with a colorspace.
+        /// </summary>
     abstract class PdfColorSpace
     {
         /// <summary>Checks to see if the colorspace supports CYMK colors.</summary>

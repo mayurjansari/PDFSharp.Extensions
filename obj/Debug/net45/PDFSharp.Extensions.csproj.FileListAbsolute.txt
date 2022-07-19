@@ -1,0 +1,15 @@
+C:\MAYUR\MySea\sources\PDFSharp.Extensions\bin\Debug\net45\PDFSharp.Extensions.dll
+C:\MAYUR\MySea\sources\PDFSharp.Extensions\bin\Debug\net45\PDFSharp.Extensions.pdb
+C:\MAYUR\MySea\sources\PDFSharp.Extensions\bin\Debug\net45\BitMiracle.LibTiff.NET.dll
+C:\MAYUR\MySea\sources\PDFSharp.Extensions\bin\Debug\net45\PdfSharp-gdi.dll
+C:\MAYUR\MySea\sources\PDFSharp.Extensions\bin\Debug\net45\PdfSharp.Charting-gdi.dll
+C:\MAYUR\MySea\sources\PDFSharp.Extensions\bin\Debug\net45\de\PdfSharp-gdi.resources.dll
+C:\MAYUR\MySea\sources\PDFSharp.Extensions\bin\Debug\net45\de\PdfSharp.Charting-gdi.resources.dll
+C:\MAYUR\MySea\sources\PDFSharp.Extensions\obj\Debug\net45\PDFSharp.Extensions.csproj.AssemblyReference.cache
+C:\MAYUR\MySea\sources\PDFSharp.Extensions\obj\Debug\net45\PDFSharp.Extensions.GeneratedMSBuildEditorConfig.editorconfig
+C:\MAYUR\MySea\sources\PDFSharp.Extensions\obj\Debug\net45\PDFSharp.Extensions.AssemblyInfoInputs.cache
+C:\MAYUR\MySea\sources\PDFSharp.Extensions\obj\Debug\net45\PDFSharp.Extensions.AssemblyInfo.cs
+C:\MAYUR\MySea\sources\PDFSharp.Extensions\obj\Debug\net45\PDFSharp.Extensions.csproj.CoreCompileInputs.cache
+C:\MAYUR\MySea\sources\PDFSharp.Extensions\obj\Debug\net45\PDFSharp.Extensions.csproj.CopyComplete
+C:\MAYUR\MySea\sources\PDFSharp.Extensions\obj\Debug\net45\PDFSharp.Extensions.dll
+C:\MAYUR\MySea\sources\PDFSharp.Extensions\obj\Debug\net45\PDFSharp.Extensions.pdb
