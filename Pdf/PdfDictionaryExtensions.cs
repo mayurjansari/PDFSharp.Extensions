@@ -197,6 +197,9 @@ public static class PdfDictionaryExtensions
                     tiff.ReadScanline(buffer, i);
 
                     //code here to fix black and white image
+                    if (!ccittFaxDecodeParameters.BlackIs1)
+                        for (var j = 0; j < buffer.Length; j++)
+                            buffer[j] = (byte)(255 - buffer[j]);
 
                     Rectangle imgRect = new Rectangle(0, i, imageData.Width, 1);
                     BitmapData imgData = bitmap.LockBits(imgRect, ImageLockMode.WriteOnly, PixelFormat.Format1bppIndexed);
