@@ -13,3 +13,5 @@ C:\MAYUR\MySea\sources\PDFSharp.Extensions\obj\Debug\net45\PDFSharp.Extensions.c
 C:\MAYUR\MySea\sources\PDFSharp.Extensions\obj\Debug\net45\PDFSharp.Extensions.csproj.CopyComplete
 C:\MAYUR\MySea\sources\PDFSharp.Extensions\obj\Debug\net45\PDFSharp.Extensions.dll
 C:\MAYUR\MySea\sources\PDFSharp.Extensions\obj\Debug\net45\PDFSharp.Extensions.pdb
+C:\MAYUR\MySea\sources\binary\Debug\net45\PDFSharp.Extensions.dll
+C:\MAYUR\MySea\sources\binary\Debug\net45\PDFSharp.Extensions.pdb

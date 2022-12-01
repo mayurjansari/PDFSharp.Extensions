@@ -8,3 +8,6 @@ C:\MAYUR\MySea\sources\PDFSharp.Extensions\obj\Debug\netstandard2.0\PDFSharp.Ext
 C:\MAYUR\MySea\sources\PDFSharp.Extensions\obj\Debug\netstandard2.0\PDFSharp.Extensions.csproj.CoreCompileInputs.cache
 C:\MAYUR\MySea\sources\PDFSharp.Extensions\obj\Debug\netstandard2.0\PDFSharp.Extensions.dll
 C:\MAYUR\MySea\sources\PDFSharp.Extensions\obj\Debug\netstandard2.0\PDFSharp.Extensions.pdb
+C:\MAYUR\MySea\sources\binary\Debug\netstandard2.0\PDFSharp.Extensions.deps.json
+C:\MAYUR\MySea\sources\binary\Debug\netstandard2.0\PDFSharp.Extensions.dll
+C:\MAYUR\MySea\sources\binary\Debug\netstandard2.0\PDFSharp.Extensions.pdb
