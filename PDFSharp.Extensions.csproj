@@ -8,6 +8,7 @@
     <Product>MySea Solutions</Product>
     <Copyright>MySea Solutions</Copyright>
     <FileVersion>2022.07.19</FileVersion>
+    <BaseOutputPath>..\binary</BaseOutputPath>
     <LangVersion>latest</LangVersion>
   </PropertyGroup>
 
