@@ -2,13 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 
-// ReSharper disable once CheckNamespace
-#if NET40_OR_GREATER
-namespace PdfSharp.Pdf;
-#else
 namespace PdfSharpCore.Pdf;
-#endif
-
 
 /// <summary>
 /// Extension methods for the PdfSharp library PdfItem object.

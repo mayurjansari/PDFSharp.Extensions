@@ -1,21 +1,20 @@
-﻿
-using System.Collections.Generic;
-#if NET40_OR_GREATER
-namespace System.Drawing;
-using PdfSharp.Drawing;
-using PdfSharp.Pdf;
-#else
+﻿using System.Collections.Generic;
+using SixLabors.ImageSharp;
 using PdfSharpCore.Drawing;
 using PdfSharpCore.Pdf;
-#endif
-// ReSharper disable once CheckNamespace
+using PdfSharpCore.Utils;
+using SixLabors.ImageSharp.Formats.Png;
+using static MigraDocCore.DocumentObjectModel.MigraDoc.DocumentObjectModel.Shapes.ImageSource;
+using SixLabors.ImageSharp.PixelFormats;
+
+// ReSharper disable CheckNamespace
+namespace PdfSharpCore.Images;
 
 /// <summary>
 /// Extension methods for the <see cref="Image"/> class.
 /// </summary>
 public static class ImageExtensions
 {
-#if NET40_OR_GREATER
 
 /// <summary>
 /// Generates a PDF page from the image.
@@ -37,6 +36,7 @@ public static PdfDocument ToPdf(this Image image)
 public static PdfDocument ToPdf(this IEnumerable<Image> images)
 {
   PdfDocument document = new PdfDocument();
+  PngFormat fmt = PngFormat.Instance;
   foreach (var image in images) {
     PdfPage page = new PdfPage() {
       Width = image.Width,
@@ -45,10 +45,12 @@ public static PdfDocument ToPdf(this IEnumerable<Image> images)
     document.AddPage(page);
 
     XGraphics xGraphics = XGraphics.FromPdfPage(page);
-    XImage xImage = XImage.FromGdiPlusImage(image);
+    using Image<Rgba32> tmp = image.CloneAs<Rgba32>();
+    IImageSource source = ImageSharpImageSource<Rgba32>.FromImageSharpImage(tmp, fmt);
+    XImage xImage = XImage.FromImageSource(source);
     xGraphics.DrawImage(xImage, 0, 0, image.Width, image.Height);
   }
   return (document);
 }
-#endif
+
 }

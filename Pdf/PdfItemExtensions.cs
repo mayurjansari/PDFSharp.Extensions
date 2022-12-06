@@ -1,13 +1,6 @@
-﻿
-// ReSharper disable once CheckNamespace
-#if NET40_OR_GREATER
-using PdfSharp.Pdf.Advanced;
-namespace PdfSharp.Pdf;
-#else
-using PdfSharpCore.Pdf.Advanced;
-namespace PdfSharpCore.Pdf;
-#endif
+﻿using PdfSharpCore.Pdf.Advanced;
 
+namespace PdfSharpCore.Pdf;
 
 /// <summary>
 /// Extension methods for the PdfSharp library PdfItem object.
