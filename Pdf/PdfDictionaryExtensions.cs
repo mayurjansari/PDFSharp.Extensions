@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.Globalization;
@@ -10,19 +9,11 @@ using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 using BitMiracle.LibTiff.Classic;
-
-// ReSharper disable once CheckNamespace
-#if NET40_OR_GREATER
-using PdfSharp.Pdf.Advanced;
-using PdfSharp.Pdf.Filters;
-using PdfSharp.Pdf.Internal;
-namespace PdfSharp.Pdf;
-#else
 using PdfSharpCore.Pdf.Advanced;
 using PdfSharpCore.Pdf.Filters;
 using PdfSharpCore.Pdf.Internal;
+
 namespace PdfSharpCore.Pdf;
-#endif
 
 /// <summary>
 /// Extension methods for the PdfSharp library PdfDictionary object for exporting images.

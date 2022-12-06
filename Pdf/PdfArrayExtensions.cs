@@ -1,10 +1,7 @@
 ﻿using System;
 
-#if NET40_OR_GREATER
-namespace PdfSharp.Pdf;
-#else
 namespace PdfSharpCore.Pdf;
-#endif
+
 /// <summary>
 /// Extension methods for the PdfSharp library PdfArray object
 /// </summary>
