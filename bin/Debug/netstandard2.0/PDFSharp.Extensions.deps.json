@@ -7,7 +7,7 @@
   "targets": {
     ".NETStandard,Version=v2.0": {},
     ".NETStandard,Version=v2.0/": {
-      "PDFSharp.Extensions/1.0.0": {
+      "PDFSharp.Extensions/2022.07.19": {
         "dependencies": {
           "BitMiracle.LibTiff.NET": "2.4.649",
           "NETStandard.Library": "2.0.3",
@@ -356,7 +356,7 @@
     }
   },
   "libraries": {
-    "PDFSharp.Extensions/1.0.0": {
+    "PDFSharp.Extensions/2022.07.19": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

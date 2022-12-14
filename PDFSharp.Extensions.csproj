@@ -7,7 +7,7 @@
     <Company>MySea Solutions</Company>
     <Product>MySea Solutions</Product>
     <Copyright>MySea Solutions</Copyright>
-    <FileVersion>2022.07.19</FileVersion>
+    <Version>2022.07.19</Version>
     <LangVersion>latest</LangVersion>
   </PropertyGroup>
 

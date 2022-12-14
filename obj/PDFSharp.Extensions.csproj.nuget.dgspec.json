@@ -5,7 +5,7 @@
   },
   "projects": {
     "C:\\MAYUR\\MySea\\sources\\PDFSharp.Extensions\\PDFSharp.Extensions.csproj": {
-      "version": "1.0.0",
+      "version": "2022.7.19",
       "restore": {
         "projectUniqueName": "C:\\MAYUR\\MySea\\sources\\PDFSharp.Extensions\\PDFSharp.Extensions.csproj",
         "projectName": "PDFSharp.Extensions",
@@ -59,7 +59,7 @@
               "version": "[1.51.5185-beta, )"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.101\\RuntimeIdentifierGraph.json"
         },
         "netstandard2.0": {
           "targetAlias": "netstandard2.0",
@@ -94,7 +94,7 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     }
