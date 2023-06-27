@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 
 // ReSharper disable once CheckNamespace
-#if NET40_OR_GREATER
+#if NETFRAMEWORK
 using PdfSharp.Pdf.Advanced;
 namespace PdfSharp.Pdf;
 #else

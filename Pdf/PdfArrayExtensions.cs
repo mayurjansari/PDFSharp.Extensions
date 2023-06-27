@@ -1,6 +1,6 @@
 ﻿using System;
 
-#if NET40_OR_GREATER
+#if NETFRAMEWORK
 namespace PdfSharp.Pdf;
 #else
 namespace PdfSharpCore.Pdf;

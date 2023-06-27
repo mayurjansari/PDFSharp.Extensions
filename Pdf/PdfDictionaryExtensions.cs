@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 using BitMiracle.LibTiff.Classic;
 
 // ReSharper disable once CheckNamespace
-#if NET40_OR_GREATER
+#if NETFRAMEWORK
 using PdfSharp.Pdf.Advanced;
 using PdfSharp.Pdf.Filters;
 using PdfSharp.Pdf.Internal;
