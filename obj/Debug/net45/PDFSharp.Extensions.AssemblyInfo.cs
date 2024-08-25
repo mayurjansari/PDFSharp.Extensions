@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyCopyrightAttribute("MySea Solutions")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("2022.7.19.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("2022.07.19+a3b085b9b4c1450e71a4ad32174aea65a7e06652")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("2022.07.19+44c1d67bab91ed45bde2a783bd8c5019e96127f4")]
 [assembly: System.Reflection.AssemblyProductAttribute("MySea Solutions")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PDFSharp.Extensions")]
 [assembly: System.Reflection.AssemblyVersionAttribute("2022.7.19.0")]
