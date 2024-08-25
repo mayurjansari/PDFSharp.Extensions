@@ -10,8 +10,9 @@ C:\MAYUR\MySea\sources\PDFSharp.Extensions\obj\Debug\net45\PDFSharp.Extensions.G
 C:\MAYUR\MySea\sources\PDFSharp.Extensions\obj\Debug\net45\PDFSharp.Extensions.AssemblyInfoInputs.cache
 C:\MAYUR\MySea\sources\PDFSharp.Extensions\obj\Debug\net45\PDFSharp.Extensions.AssemblyInfo.cs
 C:\MAYUR\MySea\sources\PDFSharp.Extensions\obj\Debug\net45\PDFSharp.Extensions.csproj.CoreCompileInputs.cache
-C:\MAYUR\MySea\sources\PDFSharp.Extensions\obj\Debug\net45\PDFSharp.Extensions.csproj.CopyComplete
 C:\MAYUR\MySea\sources\PDFSharp.Extensions\obj\Debug\net45\PDFSharp.Extensions.dll
 C:\MAYUR\MySea\sources\PDFSharp.Extensions\obj\Debug\net45\PDFSharp.Extensions.pdb
 C:\MAYUR\MySea\sources\binary\Debug\net45\PDFSharp.Extensions.dll
 C:\MAYUR\MySea\sources\binary\Debug\net45\PDFSharp.Extensions.pdb
+C:\MAYUR\MySea\sources\PDFSharp.Extensions\obj\Debug\net45\PDFSharp.Extensions.sourcelink.json
+C:\MAYUR\MySea\sources\PDFSharp.Extensions\obj\Debug\net45\PDFSharp.26E955E8.Up2Date
