@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.2.32630.192
+VisualStudioVersion = 17.11.35219.272
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PDFSharp.Extensions", "PDFSharp.Extensions.csproj", "{35910C2C-3D6D-4912-9584-4DE66C294729}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PDFSharp.Extensions", "PDFSharp.Extensions\PDFSharp.Extensions.csproj", "{28AA69FB-F8FC-448D-A62D-BA513CC36744}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{35910C2C-3D6D-4912-9584-4DE66C294729}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{35910C2C-3D6D-4912-9584-4DE66C294729}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{35910C2C-3D6D-4912-9584-4DE66C294729}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{35910C2C-3D6D-4912-9584-4DE66C294729}.Release|Any CPU.Build.0 = Release|Any CPU
+		{28AA69FB-F8FC-448D-A62D-BA513CC36744}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{28AA69FB-F8FC-448D-A62D-BA513CC36744}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{28AA69FB-F8FC-448D-A62D-BA513CC36744}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{28AA69FB-F8FC-448D-A62D-BA513CC36744}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {5699060C-9091-4B6D-B3B4-311259F29DA0}
+		SolutionGuid = {F500280D-D156-44E4-B7AA-BBB8831EF04A}
 	EndGlobalSection
 EndGlobal
