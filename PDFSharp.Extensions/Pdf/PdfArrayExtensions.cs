@@ -1,13 +1,7 @@
 ﻿using System;
 
-#if NETFRAMEWORK
 namespace PdfSharp.Pdf;
-#else
-namespace PdfSharpCore.Pdf;
-#endif
-/// <summary>
-/// Extension methods for the PdfSharp library PdfArray object
-/// </summary>
+/// <summary>Extension methods for the PdfSharp library PdfArray object</summary>
 public static class PdfArrayExtensions
 {
 /// <summary>

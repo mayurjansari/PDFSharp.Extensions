@@ -11,22 +11,13 @@ using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 using BitMiracle.LibTiff.Classic;
 
-// ReSharper disable once CheckNamespace
-#if NETFRAMEWORK
 using PdfSharp.Pdf.Advanced;
 using PdfSharp.Pdf.Filters;
 using PdfSharp.Pdf.Internal;
-namespace PdfSharp.Pdf;
-#else
-using PdfSharpCore.Pdf.Advanced;
-using PdfSharpCore.Pdf.Filters;
-using PdfSharpCore.Pdf.Internal;
-namespace PdfSharpCore.Pdf;
-#endif
 
-/// <summary>
-/// Extension methods for the PdfSharp library PdfDictionary object for exporting images.
-/// </summary>
+namespace PdfSharp.Pdf;
+
+/// <summary>Extension methods for the PdfSharp library PdfDictionary object for exporting images.</summary>
 public static class PdfDictionaryExtensions
 {
     /// <summary>

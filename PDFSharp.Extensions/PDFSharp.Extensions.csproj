@@ -1,31 +1,35 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFrameworks>net45;netstandard2.0</TargetFrameworks>
-    <PackageId>PDFSharp.Extensions</PackageId>
-    <Authors>Mayur Jansari</Authors>
-    <Company>MySea Solutions</Company>
-    <Product>MySea Solutions</Product>
-    <Copyright>MySea Solutions</Copyright>
-    <Version>2022.07.19</Version>
-    <LangVersion>latest</LangVersion>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFrameworks>net6.0-windows;netstandard2.0;net462;</TargetFrameworks>
+		<PackageId>PDFSharp.Extensions</PackageId>
+		<Authors>Mayur Jansari</Authors>
+		<Company>MySea Solutions</Company>
+		<Product>MySea Solutions</Product>
+		<Copyright>MySea Solutions</Copyright>
+		<Version>2022.10.18</Version>
+		<LangVersion>latest</LangVersion>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <Compile Remove="System\**" />
-    <EmbeddedResource Remove="System\**" />
-    <None Remove="System\**" />
-  </ItemGroup>
+	<ItemGroup>
+		<Compile Remove="System\**" />
+		<EmbeddedResource Remove="System\**" />
+		<None Remove="System\**" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <PackageReference Include="BitMiracle.LibTiff.NET" Version="2.4.649" />
-  </ItemGroup>
-  <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
-    <PackageReference Include="System.Drawing.Common" Version="6.0.0" />
-    <PackageReference Include="PdfSharpCore" Version="1.3.32" />
-  </ItemGroup>
-  <ItemGroup Condition="'$(TargetFramework)' == 'net45'">
-    <PackageReference Include="PdfSharp" Version="1.50.5147" />
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="BitMiracle.LibTiff.NET" Version="2.4.649" />
+		<PackageReference Include="PDFsharp" Version="6.2.0-preview-1" />
+		<PackageReference Include="System.Drawing.Common" Version="8.0.10" />
+	</ItemGroup>
+
+	<ItemGroup Condition="'$(TargetFramework)' == 'net6.0-windows'">
+	</ItemGroup>
+
+	<ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
+	</ItemGroup>
+
+	<ItemGroup Condition="'$(TargetFramework)' == 'net462'">
+	</ItemGroup>
 
 </Project>

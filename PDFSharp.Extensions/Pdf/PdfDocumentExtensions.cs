@@ -2,17 +2,8 @@
 using System.Collections.Generic;
 using System.Drawing;
 
-// ReSharper disable once CheckNamespace
-#if NETFRAMEWORK
 namespace PdfSharp.Pdf;
-#else
-namespace PdfSharpCore.Pdf;
-#endif
-
-
-/// <summary>
-/// Extension methods for the PdfSharp library PdfItem object.
-/// </summary>
+/// <summary>Extension methods for the PdfSharp library PdfItem object.</summary>
 public static class PdfDocumentExtensions
 {
 /// <summary>
