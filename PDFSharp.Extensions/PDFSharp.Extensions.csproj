@@ -2,15 +2,21 @@
 
 	<PropertyGroup>
 		<TargetFrameworks>net6.0-windows;netstandard2.0;net462;</TargetFrameworks>
-		<PackageId>PDFSharp.Extensions</PackageId>
-		<Authors>Mayur Jansari</Authors>
-		<Company>MySea Solutions</Company>
-		<Product>MySea Solutions</Product>
-		<Copyright>MySea Solutions</Copyright>
+		<LangVersion>12</LangVersion>
 		<Version>2022.10.18</Version>
-		<LangVersion>latest</LangVersion>
 	</PropertyGroup>
 
+	<PropertyGroup>
+		<Authors>Mayur Jansari</Authors>
+		<Company>MySea Solutions</Company>
+		<Copyright>MySea Solutions</Copyright>
+		<PackageId>PDFSharp.Extensions</PackageId>
+		<Product>MySea Solutions Core</Product>
+		<Title>MySea Solutions Core</Title>
+		<Description>MySea Solutions Core Codes</Description>
+		<PackageIcon>mysea_Square.png</PackageIcon>
+	</PropertyGroup>
+	
 	<ItemGroup>
 		<Compile Remove="System\**" />
 		<EmbeddedResource Remove="System\**" />
